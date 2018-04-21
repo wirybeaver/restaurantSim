@@ -28,7 +28,8 @@ MachineQueue.java \
 OrderQueue.java \
 TableQueue.java \
 Diner.java \
-Cook.java
+Cook.java \
+App.java
 
 # set file path related to the makefie location
 TARGET = target

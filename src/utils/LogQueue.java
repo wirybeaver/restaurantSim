@@ -3,9 +3,6 @@ package utils;
 import java.util.Collections;
 import java.util.LinkedList;
 
-/**
- * Created by Administrator on 2018/4/20.
- */
 public class LogQueue {
     private final LinkedList<Log> logs = new LinkedList<>();
     public synchronized void addInfo(Log log){

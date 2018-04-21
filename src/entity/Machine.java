@@ -1,6 +1,6 @@
 package entity;
 
-public class Machine implements Comparable{
+public class Machine implements Comparable<Machine>{
     private final int id;
     private final String name;
     private int time = 0;
@@ -42,8 +42,7 @@ public class Machine implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
-        Machine other = (Machine) o;
-        return this.time+this.workGap-other.time-other.workGap;
+    public int compareTo(Machine o) {
+        return this.time+this.workGap-o.time-o.workGap;
     }
 }

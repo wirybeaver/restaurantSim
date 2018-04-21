@@ -4,9 +4,8 @@ import utils.Log;
 import utils.LogQueue;
 import utils.LogUtil;
 
-/**
- * Created by Administrator on 2018/4/15.
- */
+import java.util.Map;
+
 public class Diner implements Runnable{
     private TableQueue tblq;
     private OrderQueue ordq;
@@ -14,12 +13,12 @@ public class Diner implements Runnable{
     private OrderNode order;
     private int arriveTime;
 
-    public Diner(TableQueue tblq, OrderQueue ordq, int dinerId, int arriveTime, int hambuger, int frier, int coke, int iceream){
+    public Diner(TableQueue tblq, OrderQueue ordq, int dinerId, int arriveTime, Map<Integer, Integer> params){
         this.dinerId = dinerId;
         this.tblq = tblq;
         this.ordq = ordq;
         this.arriveTime = arriveTime;
-        order = new OrderNode(dinerId, 0, hambuger, frier, coke, iceream);
+        order = new OrderNode(dinerId, 0, params);
     }
 
     public int getArriveTime() {
@@ -41,6 +40,7 @@ public class Diner implements Runnable{
             log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+" eat meal\n"));
 //            System.out.format("Diner %d eat at time %d\n", dinerId, time);
             time += 30;
+            Thread.sleep(30);
             log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+" leave\n"));
 //            System.out.format("Diner %d leave at time %d\n", dinerId, time);
             table.setTime(time);

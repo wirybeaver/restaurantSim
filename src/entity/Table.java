@@ -1,6 +1,6 @@
 package entity;
 
-public class  Table implements Comparable{
+public class  Table implements Comparable<Table>{
     private final int id;
     private int time = 0;
     public Table(int id){
@@ -20,8 +20,7 @@ public class  Table implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
-        Table other = (Table) o;
-        return this.time - other.time;
+    public int compareTo(Table o) {
+        return this.time - o.time;
     }
 }

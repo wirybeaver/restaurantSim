@@ -74,8 +74,15 @@ public class OrderQueue {
         }
     }
 
-    public boolean snoring(){
-        return size == 0;
+    public boolean snoring() throws InterruptedException {
+        lock.lockInterruptibly();
+        try{
+            return size == 0;
+        }
+        finally {
+            lock.unlock();
+        }
+
     }
 }
 

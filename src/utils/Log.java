@@ -1,9 +1,6 @@
 package utils;
 
-/**
- * Created by Administrator on 2018/4/20.
- */
-public class Log implements Comparable{
+public class Log implements Comparable<Log>{
     int time;
     String info;
 
@@ -21,8 +18,7 @@ public class Log implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
-        Log other = (Log) o;
-        return this.time-other.time;
+    public int compareTo(Log o) {
+        return this.time-o.time;
     }
 }

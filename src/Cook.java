@@ -40,6 +40,7 @@ public class Cook implements Runnable{
 //                    System.out.format("Machine %s is used by Cook %d for serving Diner %d at time %d\n",
 //                            machine.getName(), cookId, ord.getDinerId(), time);
                     time += machine.getWorkGap();
+                    Thread.sleep(machine.getWorkGap());
                     ord.setTime(time);
                     machine.setTime(time);
                     ord.decreaseByOne(foodId);

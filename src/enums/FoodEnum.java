@@ -27,4 +27,17 @@ public enum FoodEnum {
     public int getMakingTime() {
         return makingTime;
     }
+
+    public static int capacity(){
+        return values().length;
+    }
+
+    public static FoodEnum indexOf(int id){
+        for(FoodEnum x : values()){
+            if(x.getId() == id){
+                return x;
+            }
+        }
+        return null;
+    }
 }

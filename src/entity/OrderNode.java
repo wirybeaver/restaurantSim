@@ -1,29 +1,32 @@
 package entity;
 
-public class OrderNode implements Comparable{
-    private final static int[] taskloads = new int[]{5, 3, 2, 1};
-    private int[] foods = new int[4];
+import enums.FoodEnum;
+
+import java.util.Map;
+
+public class OrderNode implements Comparable<OrderNode>{
+    private int[] foods = new int[FoodEnum.capacity()];
     private final int dinerId;
     private final int initLoad;
     private int time;
-    public OrderNode(int dinerId, int time, int hambuger, int frier, int coke, int iceream){
-        foods[0] = hambuger;
-        foods[1] = frier;
-        foods[2] = coke;
-        foods[3] = iceream;
+    public OrderNode(int dinerId, int time, Map<Integer, Integer> params){
+        for(Integer x : params.keySet()){
+            foods[x] = params.get(x);
+        }
         this.dinerId = dinerId;
         this.time = time;
         int sum = 0;
-        for(int i = 0; i<taskloads.length; i++){
-            sum += foods[i]*taskloads[i];
+        for(int i = 0; i<foods.length; i++){
+            FoodEnum fd = FoodEnum.indexOf(i);
+            int taskLoad = (fd == null)? 0 : fd.getMakingTime();
+            sum += foods[i]*taskLoad;
         }
         initLoad = sum;
     }
 
     @Override
-    public int compareTo(Object o) {
-        OrderNode other = (OrderNode)o;
-        return this.time+this.initLoad-other.time-other.initLoad;
+    public int compareTo(OrderNode o) {
+        return this.time+this.initLoad-o.time-o.initLoad;
     }
 
     public int getDinerId() {
@@ -43,14 +46,6 @@ public class OrderNode implements Comparable{
 //        if(foods[foodId] >0){
             foods[foodId] --;
 //        }
-    }
-
-    public boolean allDone(){
-        boolean ans = true;
-        for(int x : foods){
-            ans = ans && x==0;
-        }
-        return ans;
     }
 
     public boolean isDone(int foodId){
