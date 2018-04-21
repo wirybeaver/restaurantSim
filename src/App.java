@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 public class App {
     public static void main(String[] args) throws IOException, InterruptedException {
 //        BufferedReader file = new BufferedReader(new FileReader(args[0]));
-        BufferedReader file = new BufferedReader(new FileReader("data2.txt"));
+        BufferedReader file = new BufferedReader(new FileReader("data1.txt"));
         int dinerNum = Integer.parseInt(file.readLine().trim());
         int tableNum = Integer.parseInt(file.readLine().trim());
         int cookNum = Integer.parseInt(file.readLine().trim());
