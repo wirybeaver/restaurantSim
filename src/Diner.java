@@ -32,16 +32,16 @@ public class Diner implements Runnable{
             LogQueue log = LogUtil.getInstance();
             Table table = tblq.seat();
             int time = Math.max(arriveTime, table.getTime());
-            log.addInfo(new Log(time, "Diner "+dinerId+" arrive at time "+arriveTime
-                    +", seat on Table "+table.getId()+" at time "+time+"\n"));
+            log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+", whose arrive time is "+arriveTime
+                    +", seat on Table "+table.getId()+"\n"));
 //            System.out.format("Diner %d arrive at time %d, seat on Table %d at time %d\n", dinerId, arriveTime, table.getId(), time);
             order.setTime(time);
             ordq.submitOrder(order);
             time = ordq.takeFood(dinerId).getTime();
-            log.addInfo(new Log(time, "Diner "+dinerId+" eat at time " +time+"\n"));
+            log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+" eat meal\n"));
 //            System.out.format("Diner %d eat at time %d\n", dinerId, time);
             time += 30;
-            log.addInfo(new Log(time, "Diner "+dinerId+" leave at time " +time+"\n"));
+            log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+" leave\n"));
 //            System.out.format("Diner %d leave at time %d\n", dinerId, time);
             table.setTime(time);
             tblq.leave(table);
