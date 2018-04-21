@@ -9,8 +9,8 @@ import java.util.StringTokenizer;
 
 public class App {
     public static void main(String[] args) throws IOException, InterruptedException {
-//        BufferedReader file = new BufferedReader(new FileReader(args[0]));
-        BufferedReader file = new BufferedReader(new FileReader("data1.txt"));
+        BufferedReader file = new BufferedReader(new FileReader(args[0]));
+//        BufferedReader file = new BufferedReader(new FileReader("data1.txt"));
         int dinerNum = Integer.parseInt(file.readLine().trim());
         int tableNum = Integer.parseInt(file.readLine().trim());
         int cookNum = Integer.parseInt(file.readLine().trim());
@@ -19,7 +19,7 @@ public class App {
         OrderQueue ordq = new OrderQueue(dinerNum);
         Diner[] diners = new Diner[dinerNum];
         MachineQueue mchq = new MachineQueue();
-        Map<Integer, Integer> params= new HashMap<>();
+        Map<Integer, Integer> params= new HashMap<Integer, Integer>();
         FoodEnum[] fds = new FoodEnum[]{FoodEnum.HAMBUGER, FoodEnum.FRIES, FoodEnum.COKE, FoodEnum.ICECREAM};
         for(int i = 0; i<diners.length; i++){
             params.clear();

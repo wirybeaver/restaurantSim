@@ -11,19 +11,18 @@
 # data1.txt
 # data2.txt
 
-
 # set the entry of the java application
 ENTRY_POINT = App
 
 # set your source file name
 SOURCE_FILES = \
-entity/Machine.java \
-entity/OrderNode.java \
-entity/Table.java \
 enums/FoodEnum.java \
 utils/Log.java \
 utils/LogQueue.java \
 utils/LogUtil.java \
+entity/Machine.java \
+entity/OrderNode.java \
+entity/Table.java \
 MachineQueue.java \
 OrderQueue.java \
 TableQueue.java \
@@ -69,4 +68,4 @@ clean:
 	rm -frv $(TARGET)/*
 
 run:
-	java -classpath $(TARGET) $(ENTRY_POINT)
+	java -classpath $(TARGET) $(ENTRY_POINT) $(FILE)

@@ -31,22 +31,22 @@ public class Diner implements Runnable{
             LogQueue log = LogUtil.getInstance();
             Table table = tblq.seat();
             int time = Math.max(arriveTime, table.getTime());
-            log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+", whose arrive time is "+arriveTime
-                    +", seat on Table "+table.getId()+"\n"));
-//            System.out.format("Diner %d arrive at time %d, seat on Table %d at time %d\n", dinerId, arriveTime, table.getId(), time);
+//            log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+", whose arrive time is "+arriveTime
+//                    +", seat on Table "+table.getId()+"\n"));
+            System.out.format("Time %d: Diner %d arrive at time %d, seat on Table %d\n", time, dinerId, arriveTime, table.getId());
             order.setTime(time);
             ordq.submitOrder(order);
             time = ordq.takeFood(dinerId).getTime();
-            log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+" eat meal\n"));
-//            System.out.format("Diner %d eat at time %d\n", dinerId, time);
+//            log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+" eat meal\n"));
+            System.out.format("Time %d: Diner %d eat meal\n", time, dinerId);
             time += 30;
             Thread.sleep(30);
-            log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+" leave\n"));
-//            System.out.format("Diner %d leave at time %d\n", dinerId, time);
+//            log.addInfo(new Log(time, "Time "+time+": Diner "+dinerId+" leave\n"));
+            System.out.format("Time %d: Diner %d leave\n", time, dinerId);
             table.setTime(time);
             tblq.leave(table);
             if(ordq.snoring()){
-                log.printAscendByTime();
+//                log.printAscendByTime();
                 System.out.println("*---------- Efficiency Result ----------*");
                 System.out.format("Last Diner %d leave at time %d\n", dinerId, time);
                 System.exit(0);
