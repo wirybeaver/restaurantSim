@@ -13,7 +13,7 @@ public class MachineQueue{
     private Lock lock;
     private Condition OkToCook;
     public MachineQueue(){
-        idleCandidates= new PriorityQueue<>();
+        idleCandidates= new PriorityQueue<Machine>();
         lock = new ReentrantLock();
         OkToCook = lock.newCondition();
         int i = 0;

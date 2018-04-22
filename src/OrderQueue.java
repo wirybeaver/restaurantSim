@@ -18,8 +18,8 @@ public class OrderQueue {
         lock = new ReentrantLock();
         OkToEat = lock.newCondition();
         OkToCook = lock.newCondition();
-        waitingjobs = new PriorityQueue<>();
-        donejobs = new HashMap<>();
+        waitingjobs = new PriorityQueue<OrderNode>();
+        donejobs = new HashMap<Integer, OrderNode>();
     }
 
     public void submitOrder(OrderNode order) throws InterruptedException {

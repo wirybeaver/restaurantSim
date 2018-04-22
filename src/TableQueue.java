@@ -14,7 +14,7 @@ public class TableQueue {
         this.capacity =capacity;
         lock = new ReentrantLock();
         OkToSeat = lock.newCondition();
-        tables = new PriorityQueue<>();
+        tables = new PriorityQueue<Table>();
         for(int i =0; i<capacity; i++){
             tables.offer(new Table(i));
         }

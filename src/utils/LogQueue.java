@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class LogQueue {
-    private final LinkedList<Log> logs = new LinkedList<>();
+    private final LinkedList<Log> logs = new LinkedList<Log>();
     public synchronized void addInfo(Log log){
         logs.add(log);
     }
