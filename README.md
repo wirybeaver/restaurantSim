@@ -12,11 +12,12 @@ The leaving time of last diner for data1.txt and data2.txt is 177 and 252~255 re
 Put your extra test files in the current directory, the same as where the sample test "data1.txt" locates.
 
 **Step 2**<br>
-> make rebuild
+`make rebuild`
 
 **Step 3**<br>
-> make run FILE=yourfilename <br>
-Correct example: **make run FILE=data1.txt**
+`make run FILE=yourfilename`<br>
+Correct example: <br>
+`make run FILE=data1.txt`
 
 **Note 1**<br>
 For the step 3 command, no space is allowed proceeding or post to "=". <br>
