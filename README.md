@@ -21,7 +21,7 @@ Correct example: <br>
 
 **Note 1**<br>
 For the step 3 command, no space is allowed proceeding or post to "=". <br>
-For example, **make run FILE =data1.txt** and **make run FILE= data1.txt** are both illegal.
+For example, `make run FILE =data1.txt` and `make run FILE= data1.txt` are both illegal.
 
 **Note 2** <br>
 The initial excution of Step 3 may achieve an undesirable answer. Please repeat executing Step 3 one or two more times for a normal result.
