@@ -18,7 +18,7 @@ For example, **make run FILE =data1.txt** and **make run FILE= data1.txt** are b
 **Note 2** <br>
 The initial excution of Step 3 may achieve an undesirable answer. Please repeat executing Step 3 one or two more times for a normal result.
 
-**Project Sketch**
+**Project Sketch**<br>
 Restaurant 6431 is now open. A restaurant requires careful coordination of resources, which are the tables in the restaurant, the cooks available to cook the order, and the machines available to cook the food (we assume that there is no contention on other possible resources, like servers to take order and serve the orders).
 
 Your simulation must create one thread for each arriving diner, which will then compete for an available table. There will also be one thread for each cook, all of them active for the entire duration the restaurant is open. Tables and machines for cooking the food are resources whose use must be coordinated among the threads.
